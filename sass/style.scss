@@ -1,0 +1,289 @@
+// Colors
+$red: rgb(70, 34, 34);
+$green: #838271;
+
+// Reset
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+// Animiation
+@keyframes pulse {
+	from {
+		bottom: -50px;
+		width: 100px;
+		height: 100px;
+		opacity: 1;
+	}
+	to {
+		bottom: -75px;
+		width: 150px;
+		height: 150px;
+		opacity: 0;
+	}
+}
+
+html {
+	font-size: 62, 5%;
+	font-family: 'Aclonica', sans-serif;
+	min-width: 320px;
+	min-height: 100vh;
+	background-image: linear-gradient(315deg, #8c887d 0%, #a4a198 74%);
+}
+
+.wrapper {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+// hero and name
+.header {
+	position: relative;
+
+	&__hero {
+		position: relative;
+		height: 500px;
+		background-image: url(../img/hero-img.jpg);
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.3);
+		}
+	}
+
+	&__name {
+		position: absolute;
+		bottom: -47.5px;
+		left: 50%;
+		transform: translate(-50%);
+		padding: 1em 2em;
+		width: 100%;
+		background-color: $green;
+		color: $red;
+		text-align: center;
+		border: 7px solid #494c40;
+		border-radius: 20%;
+
+		h1 {
+			text-transform: uppercase;
+		}
+
+		p {
+			font-size: 0.7rem;
+			color: #3a3b32;
+		}
+	}
+}
+
+.description {
+	display: flex;
+	justify-content: center;
+	padding-top: 2em;
+	margin-top: 47.5px;
+	width: 100%;
+	height: 100%;
+
+	&__items {
+		display: flex;
+		justify-content: center;
+		flex-direction: row;
+		flex-wrap: wrap;
+		max-width: 500px;
+		width: 100%;
+		padding: 1em;
+		text-transform: uppercase;
+	}
+
+	&__item {
+		font-size: 1rem;
+		padding: 0.5em 0;
+		width: 49%;
+		text-align: center;
+		left: 0;
+
+		& span {
+			display: inline-block;
+			width: 100%;
+			font-size: 1.3rem;
+			color: $red;
+		}
+	}
+}
+
+.card__character {
+	display: flex;
+	justify-content: center;
+	margin: 2em 0;
+}
+
+.character {
+	position: relative;
+	width: 400px;
+	height: 600px;
+	margin: 2em;
+	transition: all 0.5s;
+	cursor: pointer;
+	perspective: 900px;
+
+	&:hover &__text {
+		transform: rotateY(-180deg);
+		opacity: 1;
+	}
+
+	&:hover &__photo {
+		transform: rotateY(180deg);
+		opacity: 0;
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		width: 100px;
+		height: 100px;
+		bottom: -50px;
+		left: 50%;
+		transform: translateX(-50%);
+		border-radius: 50%;
+		background-color: $green;
+		background-image: url(../img/icons/arrow-up.svg);
+		background-repeat: no-repeat;
+		background-size: 50%;
+		background-position: center;
+		transition: all 0.3s;
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		width: 100px;
+		height: 100px;
+		bottom: -50px;
+		left: 50%;
+		transform: translateX(-50%);
+		border-radius: 50%;
+		border: 2px solid $red;
+		z-index: 100;
+		animation: pulse 1s linear infinite;
+		transition: all 0.1s;
+	}
+
+	&:hover::after,
+	&:hover::before {
+		background-image: url(../img/icons/arrow-down.svg);
+		background-repeat: no-repeat;
+		background-size: 50%;
+		background-position: 50% 90%;
+		z-index: -100;
+	}
+
+	&__photo {
+		width: 100%;
+		height: 100%;
+		background-image: url(../img/hero-skin.jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		opacity: 1;
+		transition: all 1s;
+		box-shadow: 8px 8px 24px 7px rgba(66, 68, 90, 1);
+	}
+
+	&__text {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: $green;
+		opacity: 0;
+		transition: all 1s;
+		box-shadow: 8px 8px 24px 7px rgba(66, 68, 90, 1);
+		overflow: scroll;
+
+		p {
+			margin: 1em;
+			font-size: 1rem;
+			color: $red;
+			transform: rotateY(180deg);
+			letter-spacing: 0.3rem;
+		}
+
+		h2 {
+			padding: 2em 0 1em 0;
+			text-align: center;
+			text-transform: uppercase;
+			transform: rotateY(180deg);
+		}
+	}
+}
+
+// ########
+
+.cards__personal {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	margin: 2em 0;
+
+	.organisations,
+	.capacities,
+	.assets {
+		display: flex;
+		flex-direction: column;
+		width: 80%;
+		min-height: 300px;
+		height: auto;
+		margin: 2em 0;
+		padding: 1em;
+		background-color: $green;
+
+		& h2 {
+			padding: 1em 0;
+			text-align: center;
+			text-transform: uppercase;
+		}
+
+		& p {
+			margin-top: auto;
+			font-size: 1rem;
+			color: $red;
+		}
+	}
+
+	.organisations {
+		box-shadow: -8px 8px 24px 7px rgba(66, 68, 90, 1);
+	}
+
+	.capacities {
+		box-shadow: 8px 8px 24px 7px rgba(66, 68, 90, 1);
+	}
+
+	.assets {
+		box-shadow: -8px 8px 24px 7px rgba(66, 68, 90, 1);
+	}
+}
+
+footer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 60px;
+	font-size: 1.1rem;
+	background-color: $green;
+}
+
+@import './_large.scss';

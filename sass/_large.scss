@@ -1,0 +1,142 @@
+@media (min-width: 992px) {
+	.header {
+		&__name {
+			width: 40%;
+		}
+	}
+
+	.description {
+		&__items {
+			display: flex;
+			justify-content: center;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			max-width: none;
+		}
+	}
+
+	.character {
+		display: flex;
+		justify-content: space-around;
+		position: relative;
+		width: 100%;
+		height: auto;
+		margin: 2em 2em;
+		transition: none;
+		cursor: auto;
+		perspective: none;
+
+		&:hover &__text {
+			transform: none;
+			opacity: 1;
+		}
+
+		&:hover &__photo {
+			transform: none;
+			opacity: 1;
+		}
+
+		&::after {
+			display: none;
+		}
+
+		&::before {
+			display: none;
+		}
+
+		&:hover::after,
+		&:hover::before {
+			display: none;
+		}
+
+		&__photo {
+			width: 400px;
+			height: 600px;
+			background-image: url(../img/hero-skin.jpg);
+			background-repeat: no-repeat;
+			background-size: cover;
+			opacity: 1;
+			transition: none;
+			box-shadow: 8px 8px 24px 7px rgba(66, 68, 90, 1);
+		}
+
+		&__text {
+			position: relative;
+			top: auto;
+			left: auto;
+			right: auto;
+			bottom: auto;
+			width: 45%;
+			height: 600px;
+			background-color: $green;
+			opacity: 1;
+			transition: none;
+			box-shadow: none;
+			overflow: auto;
+			transition: box-shadow 0.3s;
+
+			&:hover {
+				box-shadow: 8px 8px 24px 7px $red;
+			}
+
+			p {
+				margin: 1em;
+				font-size: 1rem;
+				color: rgb(70, 34, 34);
+				transform: none;
+				letter-spacing: 0.3rem;
+			}
+
+			h2 {
+				padding: 1em 0;
+				text-align: center;
+				text-transform: uppercase;
+				transform: none;
+			}
+		}
+	}
+
+	// #####
+
+	.cards__personal {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		margin: 2em 0;
+
+		.organisations,
+		.capacities,
+		.assets {
+			display: flex;
+			flex-direction: column;
+			width: 30%;
+			margin: 2em 0;
+			padding: 1em;
+			background-color: $green;
+			transition: transform 0.3s;
+
+			& h2 {
+				padding: 1em 0;
+				text-align: center;
+				text-transform: uppercase;
+			}
+
+			& p {
+				margin-top: auto;
+				color: $red;
+				letter-spacing: 0.2rem;
+			}
+
+			&:hover {
+				transform: scale(1.1);
+			}
+		}
+
+		.capacities {
+			box-shadow: -8px 8px 24px 7px rgba(66, 68, 90, 1);
+		}
+	}
+}
