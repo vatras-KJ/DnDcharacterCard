@@ -88,6 +88,7 @@ html {
 }
 
 .description {
+	position: relative;
 	display: flex;
 	justify-content: center;
 	padding-top: 2em;
@@ -119,6 +120,46 @@ html {
 			font-size: 1.3rem;
 			color: $red;
 			cursor: pointer;
+		}
+	}
+
+	.popup {
+		display: none;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		margin-left: 2rem;
+		padding: 2rem 2rem;
+		background-color: $green;
+		border: 3px solid $red;
+		border-radius: 8px;
+		transform: translateY(150px);
+		z-index: 100;
+
+		&__info {
+			margin: .4rem .2rem;
+			color: black;
+			text-transform: uppercase;
+
+		}
+
+		&__input {
+			min-width: 20rem;
+		}
+
+		&__buttons {
+			display: flex;
+			justify-content: flex-end;
+
+			& button {
+				min-width: 6rem;
+				padding: .5rem 1rem;
+				margin: .2rem 0;
+			}
+
+			& .cancel {
+				margin-left: .5rem;
+			}
 		}
 	}
 }

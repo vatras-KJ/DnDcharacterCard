@@ -92,6 +92,7 @@ html {
 }
 
 .description {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -134,6 +135,44 @@ html {
   font-size: 1.3rem;
   color: rgb(70, 34, 34);
   cursor: pointer;
+}
+.description .popup {
+  display: none;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin-left: 2rem;
+  padding: 2rem 2rem;
+  background-color: #838271;
+  border: 3px solid rgb(70, 34, 34);
+  border-radius: 8px;
+  -webkit-transform: translateY(150px);
+          transform: translateY(150px);
+  z-index: 100;
+}
+.description .popup__info {
+  margin: 0.4rem 0.2rem;
+  color: black;
+  text-transform: uppercase;
+}
+.description .popup__input {
+  min-width: 20rem;
+}
+.description .popup__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.description .popup__buttons button {
+  min-width: 6rem;
+  padding: 0.5rem 1rem;
+  margin: 0.2rem 0;
+}
+.description .popup__buttons .cancel {
+  margin-left: 0.5rem;
 }
 
 .card__character {
