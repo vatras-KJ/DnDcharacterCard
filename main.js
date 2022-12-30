@@ -39,9 +39,10 @@ const checkItems = e => {
 	}
 }
 
-// funkcja wpisująca wybraną wartość do inputa
+// funkcja wpisująca wybraną wartość do inputa oraz informacje, który item jest edytowany
 const itemValue = eventFromCheckItems => {
 	let characterProperties
+
 	if (eventFromCheckItems.target.matches('#age')) {
 		characterProperties = 'age'
 	} else if (eventFromCheckItems.target.matches('#growth')) {
@@ -80,6 +81,7 @@ const cancelPopup = () => {
 	popupInput.value = ''
 }
 
+// funkcja sprawdzająca, który klawisz został wciścięty przy inpucie
 const keyCheck = e => {
 	if (e.key === 'Enter') {
 		editItems()
@@ -98,5 +100,5 @@ const handleCurrentYear = () => {
 // Wywołanie funkcji
 handleCurrentYear()
 
-// nasłuchiwanie na całą stronę, scripty nie uruchomią się zanim niewczyta się cała strona.
+// nasłuchiwanie na całą stronę, scripty nie uruchomią się zanim nie wczyta się cała strona.
 document.addEventListener('DOMContentLoaded', main)
