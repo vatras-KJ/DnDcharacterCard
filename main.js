@@ -28,6 +28,7 @@ const prepareDOMEvents = () => {
 	descriptionItems.addEventListener('click', checkItems)
 	popupAceptBtn.addEventListener('click', editItems)
 	popupCancelBtn.addEventListener('click', cancelPopup)
+	popupInput.addEventListener('keyup', keyCheck)
 }
 
 // funkcja sprawdzająca czy właściwy element został kliknięty
@@ -63,7 +64,7 @@ const itemValue = eventFromCheckItems => {
 
 // funkcja wprowadzająca zmiany z inputa do elementu
 const editItems = () => {
-	if(popupInput.value !== ''){
+	if (popupInput.value !== '') {
 		itemsHeroEdit.firstChild.textContent = popupInput.value
 		popupInfo.textContent = 'Select option'
 		popupInput.value = ''
@@ -77,6 +78,14 @@ const cancelPopup = () => {
 	popup.style.display = 'none'
 	popupInfo.textContent = 'Select option'
 	popupInput.value = ''
+}
+
+const keyCheck = e => {
+	if (e.key === 'Enter') {
+		editItems()
+	} else if (e.key === 'Escape') {
+		cancelPopup()
+	}
 }
 
 // automatyczna zmiana daty w footer
