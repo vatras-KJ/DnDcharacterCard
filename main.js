@@ -63,9 +63,13 @@ const itemValue = eventFromCheckItems => {
 
 // funkcja wprowadzająca zmiany z inputa do elementu
 const editItems = () => {
-	itemsHeroEdit.firstChild.textContent = popupInput.value
-	popupInfo.textContent = 'Select option'
-	popupInput.value = ''
+	if(popupInput.value !== ''){
+		itemsHeroEdit.firstChild.textContent = popupInput.value
+		popupInfo.textContent = 'Select option'
+		popupInput.value = ''
+	} else {
+		popupInfo.textContent = 'Type a value'
+	}
 }
 
 // funkcja zamykająca popup

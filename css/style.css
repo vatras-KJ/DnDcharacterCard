@@ -139,15 +139,14 @@ html {
 .description .popup {
   display: none;
   position: absolute;
-  left: 0;
-  bottom: 0;
-  margin-left: 2rem;
+  left: 50%;
+  bottom: -180px;
   padding: 2rem 2rem;
   background-color: #838271;
   border: 3px solid rgb(70, 34, 34);
   border-radius: 8px;
-  -webkit-transform: translateY(150px);
-          transform: translateY(150px);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   z-index: 100;
 }
 .description .popup__info {
@@ -156,7 +155,14 @@ html {
   text-transform: uppercase;
 }
 .description .popup__input {
+  margin-bottom: 0.5rem;
   min-width: 20rem;
+  height: 1.5rem;
+  border: 1.5px solid #494c40;
+  background-color: #8c887d;
+}
+.description .popup__input:focus {
+  outline: 1.8px solid rgb(70, 34, 34);
 }
 .description .popup__buttons {
   display: -webkit-box;
@@ -169,7 +175,20 @@ html {
 .description .popup__buttons button {
   min-width: 6rem;
   padding: 0.5rem 1rem;
-  margin: 0.2rem 0;
+  color: #fff;
+  font-weight: bold;
+  background-color: #494c40;
+  border: 1.5px solid rgb(70, 34, 34);
+  border-radius: 8px;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.1s;
+  transition: -webkit-transform 0.1s;
+  transition: transform 0.1s;
+  transition: transform 0.1s, -webkit-transform 0.1s;
+}
+.description .popup__buttons button:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 .description .popup__buttons .cancel {
   margin-left: 0.5rem;
